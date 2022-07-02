@@ -21,5 +21,4 @@ export const Input = tw.input`
    outline-none
    w-full
    placeholder:text-dark-700
-
 `;

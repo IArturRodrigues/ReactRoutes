@@ -128,6 +128,57 @@ sobre importações dinâmicas no react {
 }
 
 useEffect e useLayoutEffect {
-   useLayoutEffect é criado antes do jsx e do html se formarem de fato, é bom para dark mode e light mode
+   useLayoutEffect é criado antes do jsx e do html do componente se formarem de fato, é bom para dark mode e light mode
    useEffect atualiza a tela
+}
+
+function component life cycle {
+   componentWillMount {
+      useLayoutEffect(() => {
+
+      }, [dependências?]);
+      // o array de dependências pode conter dependências ou não
+      
+      /* OU */
+
+      const [mount, setMount] = useState(false);
+
+      if(!mount) {
+         // será executado antes do componente ser renderizado **OCORRE APENAS 1X**
+      }
+
+      useEffect(() => {
+         setMount(true)
+      }, []);
+      // o array de dependências vazio significa que ele só sera executado 1x
+   }
+
+   componentDidUpdate {
+      useEffect(() => {
+         // código que sera executado a cada re-renderização do componente
+      });
+
+      useEffect(() => {
+         // código a ser executado cada vez que alguma das dependências for atualizada
+      }, [dependências]);
+   }
+
+   componentWillUnmount {
+      usaEffect(() => {
+         return () => {
+            // código a ser executada antes do componente desmontar
+         }
+      }, [dependências]);
+   }
+
+   componentDidMount e componentWillUnmount {
+      useEffect(() => {
+         // código a ser executado assim que o componente terminar de ser montado
+         return () => {
+            // código a ser executado antes do component desmontar
+         }
+      }, []);
+      // cuidado ao usar essa forma pois o componentWillUnmount pode depender de um array de dependências e talvez rode o código do componentDidMount novamente
+      // sendo que ele deveria rodar apenas 1x, caso isso aconteça utilize cada um de forma separada.
+   }
 }

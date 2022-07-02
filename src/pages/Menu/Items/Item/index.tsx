@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 
 import carte from '../items.json';
 
@@ -13,6 +13,7 @@ interface ItemProps {
 
 export default function Item({ item }: ItemProps): JSX.Element {
    const { photo, title, description, category, size, serving, price } = item;
+
    return (
       <StyledItem>
          <ItemImage>
@@ -33,3 +34,23 @@ export default function Item({ item }: ItemProps): JSX.Element {
       </StyledItem>
    );
 }
+
+// const mode = useMode();
+
+// useLayoutEffect(() => {
+//    if (title === "Macarrão mediterrâneo") console.log("componentWillMount");
+// }, [title]);
+
+// useEffect(() => {
+//    if (title === "Macarrão mediterrâneo") console.log("componentDidMount");
+// }, [title]);
+
+// useEffect(() => {
+//    if (title === "Macarrão mediterrâneo") console.log("componentDidUpdate: ", mode);
+// }, [title, mode]);
+
+// useEffect(() => {
+//    return () => {
+//       if (title === "Macarrão mediterrâneo") console.log("componentWillUnmount");
+//    }
+// }, [title]);

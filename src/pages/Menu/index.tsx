@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Filters from './Filters';
 import Items from './Items';
 // import logo from '../../assets/logo.svg'; // utilizando o svg como uma imagem

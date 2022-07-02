@@ -1,10 +1,10 @@
+import Home from './pages/Home';
 import Menu from './pages/Menu';
 
 function App() {
    return (
-      <div>
-         <Menu />
-      </div>
+      // <Menu />
+      <Home />
    );
 }
 

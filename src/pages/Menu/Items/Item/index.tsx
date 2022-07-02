@@ -1,4 +1,4 @@
-import carte from '../items.json';
+import carte from '@src/data/carte.json';
 
 import { StyledItem, ItemImage, ItemDescription, ItemTitle, ItemTags, ItemCategory, ItemTagsDescription, ItemPrice } from './styles';
 

@@ -120,6 +120,41 @@ instalando tailwind e styled components {
    }
 }
 
+usando tsconfig paths com vite {
+   yarn add -D @types/node
+
+   no arquivo de configurações do vite {
+      ...
+      import { resolve } from 'path'
+      
+      {
+         ...
+         resolve: {
+            alias: [
+               { find: '@', replacement: resolve(__dirname, 'src') },
+            ],
+         },
+      }
+   }
+
+   ou então baixando a lib vite-tsconfig-paths e indo nas configurações do vite {
+      import tsconfigPaths from 'vite-tsconfig-paths'
+      
+      {
+         plugins: [
+         ...
+         tsconfigPaths(),
+         ]
+      }
+   }
+
+   links {
+      https://stackoverflow.com/questions/68241263/absolute-path-not-working-in-vite-project-react-ts
+      https://vitejs.dev/config/#resolve-alias
+      https://github.com/aleclarson/vite-tsconfig-paths
+   }
+}
+
 sobre importações dinâmicas no react {
    para podermos fazer importações dinâmicas é preciso colocar os arquivos a serem importados dentro da pasta public na raiz do projeto (caso não exista crie uma)
    importações dinâmicas são feita diretamente pelos atributos do objeto
@@ -223,3 +258,4 @@ utilizando o ESLint {
       caso queira que ignore um arquivo basta colocar o comentário: /* eslint-disable */
    }
 }
+

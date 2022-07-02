@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Item from './Item';
 
-import carte from './items.json';
+import carte from '@src/data/carte.json';
 
 import { List } from './styles';
 

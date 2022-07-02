@@ -39,6 +39,7 @@ module.exports = {
             },
             red: {
                500: '#d73b3b',
+               901: '#c62a2a',
             },
             blue: {
                900: '#282b57',
@@ -60,3 +61,4 @@ module.exports = {
 // $light-grey: #f6f6f6;
 // $blue: #282b57;
 // $red: #d73b3b;
+// $red-dark: #c62a2a;

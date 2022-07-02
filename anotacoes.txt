@@ -202,6 +202,10 @@ utilizando o ESLint {
       package manager ? yarn
    }
 
+   erro utilizando unix {
+      mudar a formatação na parte de baixo do vscode para LF ao invés de CRLF
+   }
+
    // npx nao instala o pacote, apenas executa
    // o ./src serve para dizer a partir de qual diretório ele deve começar a refatoração
    npx eslint ./src --fix : se nao quiser refatorar cada lugar depois do eslint coloque o comando

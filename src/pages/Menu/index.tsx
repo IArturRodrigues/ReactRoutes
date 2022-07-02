@@ -4,11 +4,11 @@ import Items from './Items';
 // import logo from '../../assets/logo.svg'; // utilizando o svg como uma imagem
 // import { ReactComponent as Logo } from '../../assets/logo.svg'; // estava dando erro
 
-import Logo from './Logo';
+import { MainMenu } from '@src/components';
 import SearchEngine from './SearchEngine';
 import Sorter from './Sorter';
 
-import { MainMenu, Header, HeaderText, Carte, CarteTitle, CarteFilters } from './styles';
+import { Header, HeaderText, Carte, CarteTitle, CarteFilters } from './styles';
 
 // interface MenuProps {
 //    children?: React.ReactNode;
@@ -20,9 +20,7 @@ export default function Menu(): JSX.Element {
    const [sorter, setSorter] = useState<string>('');
    return (
       <main>
-         <MainMenu>
-            <Logo />
-         </MainMenu>
+         <MainMenu />
          <Header>
             <HeaderText>A casa do código e da massa</HeaderText>
          </Header>

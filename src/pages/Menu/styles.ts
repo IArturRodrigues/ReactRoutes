@@ -2,16 +2,6 @@ import tw from 'twin.macro';
 
 const HORIZONTAL_PADDING = 'px-15.625';
 
-// px-[250px]
-// py-[20px]
-export const MainMenu = tw.nav`
-   ${HORIZONTAL_PADDING}
-   py-5
-   desktop_xsm:px-6.25
-   desktop_xsm_sm:px-9.375
-   desktop_sm_md:px-12.5
-`;
-
 export const Header = tw.header`
    h-[18.75rem]
    bg-header

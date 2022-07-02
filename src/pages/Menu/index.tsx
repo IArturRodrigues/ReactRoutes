@@ -18,10 +18,7 @@ export default function Menu(): JSX.Element {
    const [filter, setFilter] = useState<number | null>(null);
    const [sorter, setSorter] = useState<string>('');
    return (
-      <main>
-         <Header>
-            <HeaderText>A casa do código e da massa</HeaderText>
-         </Header>
+      <>
          <Carte>
             <CarteTitle>Cardápio</CarteTitle>
             <SearchEngine search={search} setSearch={setSearch} />
@@ -31,6 +28,6 @@ export default function Menu(): JSX.Element {
             </CarteFilters>
             <Items search={search} filter={filter} sorter={sorter} />
          </Carte>
-      </main>
+      </>
    );
 }

@@ -10,14 +10,14 @@ import Sorter from './Sorter';
 
 import { MainMenu, Header, HeaderText, Carte, CarteTitle, CarteFilters } from './styles';
 
-interface MenuProps {
-   children?: React.ReactNode;
-}
+// interface MenuProps {
+//    children?: React.ReactNode;
+// }
 
-export default function Menu({ }: MenuProps): JSX.Element {
-   const [search, setSearch] = useState<string>("");
+export default function Menu(): JSX.Element {
+   const [search, setSearch] = useState<string>('');
    const [filter, setFilter] = useState<number | null>(null);
-   const [sorter, setSorter] = useState<string>("");
+   const [sorter, setSorter] = useState<string>('');
    return (
       <main>
          <MainMenu>

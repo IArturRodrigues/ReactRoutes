@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { SortAscending, SortDescending } from 'phosphor-react';
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 import options from './options.json';
 
@@ -23,9 +23,9 @@ export default function Sorter({ sorter, setSorter }: SorterProps): JSX.Element 
          <Sort
             onClick={() => setOpen(!open)}
             onBlur={() => setOpen(false)}
-            isActive={sorter !== ""}
+            isActive={sorter !== ''}
          >
-            <span>{sorterName || "Ordenar por"}</span>
+            <span>{sorterName || 'Ordenar por'}</span>
 
             {
                open

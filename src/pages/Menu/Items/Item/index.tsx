@@ -1,5 +1,3 @@
-import React, { useEffect, useLayoutEffect } from 'react';
-
 import carte from '../items.json';
 
 import { StyledItem, ItemImage, ItemDescription, ItemTitle, ItemTags, ItemCategory, ItemTagsDescription, ItemPrice } from './styles';
@@ -35,22 +33,26 @@ export default function Item({ item }: ItemProps): JSX.Element {
    );
 }
 
-// const mode = useMode();
 
-// useLayoutEffect(() => {
-//    if (title === "Macarrão mediterrâneo") console.log("componentWillMount");
-// }, [title]);
-
-// useEffect(() => {
-//    if (title === "Macarrão mediterrâneo") console.log("componentDidMount");
-// }, [title]);
-
-// useEffect(() => {
-//    if (title === "Macarrão mediterrâneo") console.log("componentDidUpdate: ", mode);
-// }, [title, mode]);
-
-// useEffect(() => {
-//    return () => {
-//       if (title === "Macarrão mediterrâneo") console.log("componentWillUnmount");
-//    }
-// }, [title]);
+// this is a comment
+/**
+ * const mode = useMode();
+ *
+ * useLayoutEffect(() => {
+ *    if (title === "Macarrão mediterrâneo") console.log("componentWillMount");
+ * }, [title]);
+ *
+ * useEffect(() => {
+ *    if (title === "Macarrão mediterrâneo") console.log("componentDidMount");
+ * }, [title]);
+ *
+ * useEffect(() => {
+ *    if (title === "Macarrão mediterrâneo") console.log("componentDidUpdate: ", mode);
+ * }, [title, mode]);
+ *
+ * useEffect(() => {
+ *    return () => {
+ *       if (title === "Macarrão mediterrâneo") console.log("componentWillUnmount");
+ *    }
+ * }, [title]);
+ */

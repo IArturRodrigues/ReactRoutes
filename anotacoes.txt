@@ -182,3 +182,40 @@ function component life cycle {
       // sendo que ele deveria rodar apenas 1x, caso isso aconteça utilize cada um de forma separada.
    }
 }
+
+utilizando o ESLint {
+   npm init @eslint/config
+
+   repostas {
+      to check syntax, find problems, and enforce code style
+      javascript modules (import/export)
+      react
+      typescript ? yes
+      /*** se usando mono repo marcar Browser e Node ***/
+      answer questions about your style
+      JSON
+      spaces // mudar para 3 no arquivo do eslintc caso precise
+      single
+      windows // unix da erro com espaços em branco
+      semicolons ? yes
+      install now ? yes
+      package manager ? yarn
+   }
+
+   // npx nao instala o pacote, apenas executa
+   // o ./src serve para dizer a partir de qual diretório ele deve começar a refatoração
+   npx eslint ./src --fix : se nao quiser refatorar cada lugar depois do eslint coloque o comando
+
+   se der erro dentro do return dos componentes colocar essa config no eslintc: "react/react-in-jsx-scope": "off"
+
+   caso o .eslintignore não funcionar utilize uma propriedade no eslintc {
+      "ignorePatterns": [
+         "**/*.js", // ignora todos os arquivos .js
+         "src/main.tsx" // talvez dê algum erro com o arquivo main
+      ]
+
+      /* OU */
+
+      caso queira que ignore um arquivo basta colocar o comentário: /* eslint-disable */
+   }
+}

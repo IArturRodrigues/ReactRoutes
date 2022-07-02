@@ -39,20 +39,6 @@ interface ISortFuncProps {
    setList: React.Dispatch<React.SetStateAction<typeof carte>>;
 }
 
-interface ICarte {
-   title: string;
-   description: string;
-   photo: string;
-   size: number;
-   serving: number;
-   price: number;
-   id: number;
-   category: {
-      id: number;
-      label: string;
-   };
-}
-
 function sort(props: ISortFuncProps) {
    const { filter, search, sorter, setList } = props;
    function testSearch(title: string) {
@@ -75,17 +61,17 @@ function sort(props: ISortFuncProps) {
 
    function sort(carteList: typeof carte) {
       switch (sorter) {
-         case 'porcao':
-            // return carteList.sort((firstItem, secondItem) => firstItem.size > secondItem.size ? 1 : -1);
-            return auxSort(carteList, 'size');
-         case 'qtd_pessoas':
-            // return carteList.sort((firstItem, secondItem) => firstItem.serving > secondItem.serving ? 1 : -1);
-            return auxSort(carteList, 'serving');
-         case 'preco':
-            // return carteList.sort((firstItem, secondItem) => firstItem.price > secondItem.price ? 1 : -1);
-            return auxSort(carteList, 'price');
-         default:
-            return carteList
+      case 'porcao':
+         // return carteList.sort((firstItem, secondItem) => firstItem.size > secondItem.size ? 1 : -1);
+         return auxSort(carteList, 'size');
+      case 'qtd_pessoas':
+         // return carteList.sort((firstItem, secondItem) => firstItem.serving > secondItem.serving ? 1 : -1);
+         return auxSort(carteList, 'serving');
+      case 'preco':
+         // return carteList.sort((firstItem, secondItem) => firstItem.price > secondItem.price ? 1 : -1);
+         return auxSort(carteList, 'price');
+      default:
+         return carteList;
       }
    }
 
@@ -96,7 +82,19 @@ function sort(props: ISortFuncProps) {
    }, [search, filter, sorter]);
 }
 
-
+// interface ICarte {
+//    title: string;
+//    description: string;
+//    photo: string;
+//    size: number;
+//    serving: number;
+//    price: number;
+//    id: number;
+//    category: {
+//       id: number;
+//       label: string;
+//    };
+// }
 
 // function testSearch(title: string) {
 //    const regex = new RegExp(search, 'i');

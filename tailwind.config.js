@@ -1,53 +1,54 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{ts,tsx}",
-  ],
-  theme: {
-    extend: {
-      screens: {
-        mobile_max: { 'max': '768px' },
-        desktop_xsm: { 'max': '980px' },
-        desktop_xsm_sm: { 'min': '980px', 'max': '1080px' },
-        desktop_sm_md: { 'min': '1080px', 'max': '1280px' },
+   content: [
+      "./src/**/*.{ts,tsx}",
+   ],
+   theme: {
+      extend: {
+         screens: {
+            mobile_max: { 'max': '768px' },
+            desktop_xsm: { 'max': '980px' },
+            desktop_xsm_sm: { 'min': '980px', 'max': '1080px' },
+            desktop_sm_md: { 'min': '1080px', 'max': '1280px' },
+         },
+         backgroundImage: {
+            header: 'url(/src/assets/menu/header.png)',
+         },
+         fontFamily: {
+            sans: 'Italiana, sans-serif',
+         },
+         width: {
+            25: '25rem',
+         },
+         minWidth: {
+            25: '25rem',
+         },
+         padding: {
+            15.625: '15.625rem',
+            12.5: '12.5rem',
+            9.375: '9.375rem',
+            6.25: '6.25rem',
+         },
+         colors: {
+            dark: {
+               900: '#242536',
+               700: '#4c4d5e',
+               500: '#92929d',
+               300: '#e4e4e4',
+               100: '#f6f6f6',
+            },
+            red: {
+               500: '#d73b3b',
+            },
+            blue: {
+               900: '#282b57',
+            },
+         },
       },
-      backgroundImage: {
-        header: 'url(/src/assets/menu/header.png)',
-      },
-      fontFamily: {
-        sans: 'Italiana, sans-serif',
-      },
-      width: {
-        25: '25rem',
-      },
-      minWidth: {
-        25: '25rem',
-      },
-      padding: {
-        15.625: '15.625rem',
-        12.5: '12.5rem',
-        9.375: '9.375rem',
-        6.25: '6.25rem',
-      },
-      colors: {
-        dark: {
-          900: '#242536',
-          700: '#4c4d5e',
-          500: '#92929d',
-          300: '#e4e4e4',
-          100: '#f6f6f6',
-        },
-        red: {
-          500: '#d73b3b',
-        },
-        blue: {
-          900: '#282b57',
-        },
-      },
-    },
-  },
-  plugins: [],
+   },
+   plugins: [],
 }
+
 // $padding-horizontal-mobile: 100px;
 // $padding-horizontal-sm: 150px;
 // $padding-horizontal-md: 200px;

@@ -1,10 +1,8 @@
-import Home from './pages/Home';
-import Menu from './pages/Menu';
+import Router from './Router';
 
 function App() {
    return (
-      // <Menu />
-      <Home />
+      <Router />
    );
 }
 

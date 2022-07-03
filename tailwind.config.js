@@ -16,6 +16,7 @@ module.exports = {
          },
          fontFamily: {
             sans: 'Italiana, sans-serif',
+            josefin: 'Josefin Sans, sans-serif'
          },
          width: {
             25: '25rem',

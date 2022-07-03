@@ -1,6 +1,7 @@
 import carte from '@src/data/carte.json';
+import ourHome from '@src/assets/nossa_casa.png';
 
-import { Recommended, OurHome, Address } from './styles';
+import { Recommended, Item, OurHome } from './styles';
 import Global from '@src/styles/Global';
 
 export function Home(): JSX.Element {
@@ -9,21 +10,30 @@ export function Home(): JSX.Element {
 
    return (
       <>
-         <Global.Title>
-            Recomendações da cozinha
-         </Global.Title>
-         <Recommended>
-            {recommendedPlates.map((item) => (
-               <Recommended.Item key={item.id}>
-                  <Recommended.Item.Image>
-                     <img src={item.photo} alt={item.title} />
-                  </Recommended.Item.Image>
-                  <Recommended.Item.Button>
-                     Ver mais
-                  </Recommended.Item.Button>
-               </Recommended.Item>
-            ))}
-         </Recommended>
+         <section>
+            <Global.Title>
+               Recomendações da cozinha
+            </Global.Title>
+            <Recommended>
+               {recommendedPlates.map((item) => (
+                  <Item key={item.id}>
+                     <Item.Image>
+                        <img src={item.photo} alt={item.title} />
+                     </Item.Image>
+                     <Item.Button>
+                        Ver mais
+                     </Item.Button>
+                  </Item>
+               ))}
+            </Recommended>
+            <Global.Title> Nossa casa </Global.Title>
+            <OurHome>
+               <img src={ourHome} alt="Casa do aluroni" />
+               <OurHome.Address>
+                  Rua Vergueiro, 3185 <br /> <br /> Vila Mariana - SP
+               </OurHome.Address>
+            </OurHome>
+         </section>
       </>
    );
 }

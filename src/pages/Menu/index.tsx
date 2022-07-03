@@ -7,7 +7,7 @@ import Items from './Items';
 import SearchEngine from './SearchEngine';
 import Sorter from './Sorter';
 
-import { Carte } from './styles';
+import { Filters as CarteFilters } from './styles';
 import Global from '@src/styles/Global';
 
 // interface MenuProps {
@@ -20,15 +20,13 @@ export default function Menu(): JSX.Element {
    const [sorter, setSorter] = useState<string>('');
    return (
       <>
-         <Carte>
-            <Global.Title>Cardápio</Global.Title>
-            <SearchEngine search={search} setSearch={setSearch} />
-            <Carte.Filters>
-               <Filters filter={filter} setFilter={setFilter} />
-               <Sorter sorter={sorter} setSorter={setSorter} />
-            </Carte.Filters>
-            <Items search={search} filter={filter} sorter={sorter} />
-         </Carte>
+         <Global.Title>Cardápio</Global.Title>
+         <SearchEngine search={search} setSearch={setSearch} />
+         <CarteFilters>
+            <Filters filter={filter} setFilter={setFilter} />
+            <Sorter sorter={sorter} setSorter={setSorter} />
+         </CarteFilters>
+         <Items search={search} filter={filter} sorter={sorter} />
       </>
    );
 }

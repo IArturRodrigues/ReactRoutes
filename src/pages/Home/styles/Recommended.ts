@@ -16,16 +16,18 @@ const Recommended = styled.div`
    ${tw`gap-[1.875rem]`}
 ` as IRecommended;
 
-Recommended.Item = styled.div`` as IItem;
+const Item = styled.div`` as IItem;
 
-Recommended.Item.Image = styled.div`
+Recommended.Item = Item;
+
+Item.Image = styled.div`
    ${tw`w-[18.75rem] mb-2.5`}
    img {
       ${tw`rounded-lg w-full`}
    }
 `;
 
-Recommended.Item.Button = styled.button`
+Item.Button = styled.button`
    ${tw`bg-red-500`}
    ${tw`rounded-[0.3125rem] border-none`} 
    ${tw`text-white text-[1.2rem] font-bold`}
@@ -43,4 +45,4 @@ Recommended.Item.Button = styled.button`
 // Item.Image = Image;
 // Item.Button = Button;
 
-export { Recommended };
+export { Recommended, Item };

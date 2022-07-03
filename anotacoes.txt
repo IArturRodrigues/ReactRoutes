@@ -314,3 +314,7 @@ react-router-dom {
       // os componentes filhos da rota só serão mostrados se a rota mãe tiver o componente Outlet
    }
 }
+
+outros links {
+   react typescript: https://react-typescript-cheatsheet.netlify.app/docs/basic/setup
+}

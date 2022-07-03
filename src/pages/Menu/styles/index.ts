@@ -1,1 +1,1 @@
-export { default as Carte } from './Carte';
+export { default as Filters } from './Carte';

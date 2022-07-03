@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MainNavMenu } from './components';
-import { Default, Home, Menu } from './pages';
+import { Default, Home, Menu, About } from './pages';
 
 export default function Router() {
    return (
@@ -11,6 +11,7 @@ export default function Router() {
                <Route path='/' element={<Default />} >
                   <Route index element={<Home />} />
                   <Route path='cardapio' element={<Menu />} />
+                  <Route path='sobre' element={<About />} />
                </Route>
             </Routes>
          </BrowserRouter>

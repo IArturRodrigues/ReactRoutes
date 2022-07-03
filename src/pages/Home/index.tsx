@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import carte from '@src/data/carte.json';
+
 import ourHome from '@src/assets/nossa_casa.png';
+import carte from '@src/data/carte.json';
+
+import { Food } from '@src/types/Restaurant';
 
 import { Recommended, Item, OurHome } from './styles';
 import Global from '@src/styles/Global';
@@ -11,8 +14,8 @@ export function Home(): JSX.Element {
 
    const navigate = useNavigate();
 
-   function redirectToFoodDetails(food: typeof carte[0]) {
-      navigate(`/prato/${food.id}`, { state: {food} });
+   function redirectToFoodDetails(food: Food) {
+      navigate(`/prato/${food.id}`, { state: { food } });
    }
 
    return (

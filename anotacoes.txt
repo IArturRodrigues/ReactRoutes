@@ -347,6 +347,44 @@ react-router-dom {
 
       useLocation {
          retorna o objeto passado no navigate além de outras informações adicionais. Só pode ser usado quando o usuário só poderá especificamente apertar o botão para mover a outra página, pois caso tento acessar pelo parâmetro da url o objeto não existirá.
+
+         pegando um objeto {
+            import { useNavigate } from 'react-router-dom';
+
+            export function Component1() {
+               const navigate = useNavigate();
+               const myFakeObject = { nome: 'Meu nome', idade: 19, id: 1 }
+
+               function navegar() {
+                  navigate('/path/1', { state: { myFakeObject } }) // usando spread operator não havia funcionado
+               }
+
+               return (
+                  <button onClick={() => navegar()}>
+                     Navegar
+                  </button>
+               );
+            }
+
+            //////////////////////////////////////////////////////////////////
+
+            import { useLocation } from 'react-router-dom';
+
+            interface IFakeObject { nome: string; idade: number; id: number; }
+
+            export function Component2() {
+               const { state } = useLocation();
+               const { obj } = state as { obj: IFakeObject }
+
+               return (
+                  <div>
+                     Nome: {obj.nome} <br />
+                     Idade: {obj.idade} <br />
+                     Id: {obj.id}
+                  </div>
+               );
+            }
+         }
       }
    }
 }

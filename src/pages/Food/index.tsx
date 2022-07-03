@@ -1,12 +1,13 @@
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import carte from '@src/data/carte.json';
 
 import { GoBack, Container, Title, Image, Content, Tags } from './styles';
 
 export function Food(): JSX.Element {
-   const { state } = useLocation();
-   const { food } = state as { food: typeof carte[0] };
+   const { id } = useParams();
+   const food = carte.find(food => food.id === Number(id));
+   if(!food) return <div></div>;
    const { title, photo, description, category, size, serving, price } = food;
    return (
       <>
@@ -39,3 +40,7 @@ export function Food(): JSX.Element {
 }
 
 export default Food;
+
+// const { state } = useLocation();
+// const { food } = state as { food: typeof carte[0] };
+// const { title, photo, description, category, size, serving, price } = food;

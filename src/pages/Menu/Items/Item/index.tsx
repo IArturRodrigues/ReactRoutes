@@ -1,4 +1,4 @@
-import carte from '@src/data/carte.json';
+import { Food } from '@src/types/Restaurant';
 
 import { Item as SItem, Description, Tags } from './Item';
 
@@ -6,7 +6,7 @@ type IItemCategory = 'massas' | 'carnes' | 'combos' | 'veganos';
 
 interface ItemProps {
    children?: React.ReactNode;
-   item: typeof carte[0];
+   item: Food;
 }
 
 export default function Item({ item }: ItemProps): JSX.Element {

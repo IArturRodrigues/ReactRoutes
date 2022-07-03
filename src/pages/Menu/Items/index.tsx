@@ -4,6 +4,8 @@ import Item from './Item';
 
 import carte from '@src/data/carte.json';
 
+import { Carte, Food} from '@src/types/Restaurant';
+
 import { List } from './List';
 
 interface ItemsProps {
@@ -14,7 +16,7 @@ interface ItemsProps {
 }
 
 export default function Items({ search, filter, sorter }: ItemsProps): JSX.Element {
-   const [list, setList] = useState(carte);
+   const [list, setList] = useState<Carte>(carte);
 
    sort({
       filter: filter,
@@ -25,7 +27,7 @@ export default function Items({ search, filter, sorter }: ItemsProps): JSX.Eleme
 
    return (
       <List>
-         {list.map((item) => (
+         {list.map((item: Food) => (
             <Item key={item.id} item={item} />
          ))}
       </List>
@@ -36,7 +38,7 @@ interface ISortFuncProps {
    search: string;
    filter: number | null;
    sorter: string;
-   setList: React.Dispatch<React.SetStateAction<typeof carte>>;
+   setList: React.Dispatch<React.SetStateAction<Carte>>;
 }
 
 function sort(props: ISortFuncProps) {
@@ -55,11 +57,11 @@ function sort(props: ISortFuncProps) {
    //    return list.sort((firstItem, secondItem) => (firstItem[property] > secondItem[property] ? 1 : -1));
    // }
 
-   function auxSort(list: typeof carte, property: keyof Pick<typeof carte[0], 'size' | 'price' | 'serving'>) {
+   function auxSort(list: Carte, property: keyof Pick<Food, 'size' | 'price' | 'serving'>) {
       return list.sort((firstItem, secondItem) => (firstItem[property] > secondItem[property] ? 1 : -1));
    }
 
-   function sort(carteList: typeof carte) {
+   function sort(carteList: Carte) {
       switch (sorter) {
       case 'porcao':
          // return carteList.sort((firstItem, secondItem) => firstItem.size > secondItem.size ? 1 : -1);

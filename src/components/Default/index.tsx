@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Header } from './styles';
+import { Header } from './Header';
 import Global from '@src/styles/Global';
 
 export function Default(): JSX.Element {

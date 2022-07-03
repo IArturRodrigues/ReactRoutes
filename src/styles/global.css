@@ -9,3 +9,9 @@ body {
 * {
 	@apply box-border;
 }
+
+#root > main.container {
+	display: flex;
+	flex-direction: column;
+	min-heigth: 100vh;
+}

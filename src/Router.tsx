@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { MainNavMenu } from './components';
-import { Default, Home, Menu, About } from './pages';
+import { MainNavMenu, Default, Footer } from './components';
+import { Home, Menu, About, NotFound } from './pages';
 
 export default function Router() {
    return (
@@ -12,8 +12,10 @@ export default function Router() {
                   <Route index element={<Home />} />
                   <Route path='cardapio' element={<Menu />} />
                   <Route path='sobre' element={<About />} />
+                  <Route path='*' element={<NotFound />} />
                </Route>
             </Routes>
+            <Footer />
          </BrowserRouter>
       </main>
    );

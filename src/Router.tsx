@@ -4,7 +4,7 @@ import { Home, Menu, About, NotFound } from './pages';
 
 export default function Router() {
    return (
-      <main>
+      <main className="container">
          <BrowserRouter>
             <MainNavMenu />
             <Routes>

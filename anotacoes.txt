@@ -301,17 +301,23 @@ react-router-dom {
       return(
          <BrowserRouter>
             <Routes>
-               <Route path='/' element={<ComponentOrPageWithCommonAtomicComponents />} >
+               <Route path='/' element={<ComponentOrPageWithCommonAtomicComponents />} > // component que sera mostrado em todas as paginas filhas
                   <Route index element={<Component1 />} /> // index é o caminho passado na rota mãe
                   <Route path='some-route' element={<Component2 />} /> // não precisa mais colocar /some-route pois a / já faz parte da rota dessa forma
                   <Route path='some/route' element={<Component3 />} /> // acessando subrotas da rota "principal"
                </Route>
+               <Route path='*' element={<NotFound />} /> // o path='*' diz que ele vai parar nessa rota caso a rota passada nao exista
             </Routes>
          </BrowserRouter>
       );
 
       // a partir do react router dom 6 as rotas filhas passaram a não precisar mais colocar o '/' no início pois a própria lib já faz isso
       // os componentes filhos da rota só serão mostrados se a rota mãe tiver o componente Outlet
+   }
+
+   Hooks {
+      useNavigate retorna uma função que aceita uma string para ir ou um numero. Caso o parâmetro passado para essa função seja uma string ele deveria carregar uma rota valida
+      useParams, com isso podemos passar parâmetros em uma rota e pegar ele em qualquer component filho pertencente a pagina para onde esta sendo levado
    }
 }
 

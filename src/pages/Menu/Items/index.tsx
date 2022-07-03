@@ -28,7 +28,7 @@ export default function Items({ search, filter, sorter }: ItemsProps): JSX.Eleme
    return (
       <List>
          {list.map((item: Food) => (
-            <Item key={item.id} item={item} />
+            <Item key={item.id} {...item} />
          ))}
       </List>
    );

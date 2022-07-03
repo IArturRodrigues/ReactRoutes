@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 
+import NotFound from '../NotFound';
 import { FoodTags } from '@src/components';
 
 import carte from '@src/data/carte.json';
@@ -10,7 +11,7 @@ export function Food(): JSX.Element {
    const navigate = useNavigate();
    const { id } = useParams();
    const food = carte.find(food => food.id === Number(id));
-   if(!food) return <div></div>;
+   if(!food) return <NotFound />;
    const { title, photo, description } = food;
 
    function goPreviousPage() {

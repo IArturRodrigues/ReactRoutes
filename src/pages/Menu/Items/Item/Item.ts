@@ -10,8 +10,10 @@ type IDescription = StyledComponent<'div', any, {}, never> & {
 }
 
 const Item = styled.li`
-   ${tw`flex flex-wrap`}
-   ${tw`w-[90%]`}
+   ${tw`flex flex-wrap items-center`}
+   ${tw`w-[90%] ease-in duration-200`}
+   ${tw`rounded-[0.625rem] p-5 cursor-pointer`}
+   ${tw`hover:bg-dark-300`}
 ` as IItem;
 
 Item.Image = styled.div`
@@ -27,7 +29,7 @@ const Description = styled.div`
    ${tw`px-5`}
    ${tw`desktop_xsm:flex-row`}
    ${tw`desktop_xsm:mt-5`}
-   ${tw`desktop_xsm:px-0`}
+   ${tw`desktop_xsm:p-0`}
 ` as IDescription;
 
 Description.Title = styled.div`

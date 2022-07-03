@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Food } from '@src/types/Restaurant';
 
 import { FoodTags } from '@src/components';
@@ -5,10 +7,11 @@ import { FoodTags } from '@src/components';
 import { Item as SItem, Description } from './Item';
 
 export default function Item(props: Food): JSX.Element {
-   const { photo, title, description } = props;
+   const { id, photo, title, description } = props;
+   const navigate = useNavigate();
 
    return (
-      <SItem>
+      <SItem onClick={() => navigate(`/prato/${id}`)}>
          <SItem.Image>
             <img src={photo} alt={title} />
          </SItem.Image>

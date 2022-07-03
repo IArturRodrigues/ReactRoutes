@@ -317,13 +317,37 @@ react-router-dom {
 
    Hooks {
       useNavigate {
-         retorna uma função que aceita uma string para ir ou um numero. Caso o parâmetro passado para essa função seja uma string ele deveria carregar uma rota valida, caso seja um numero deverá ser um inteiro positivo ou negativo, caso seja negativo ele voltara a quantidade de paginas passada, caso seja positivo ele avançara a quantidade de paginas passada (provavelmente nao funciona ja que nao tem como prever o futuro).
+         retorna uma função que aceita dois parametros, o primeiro é um string ou numero inteiro, a segunda é um objeto com opções. Caso o parâmetro passado para essa função seja uma string ele deveria carregar uma rota valida, caso seja um numero deverá ser um inteiro positivo ou negativo, caso seja negativo ele voltara a quantidade de paginas passada, caso seja positivo ele avançara a quantidade de paginas passada (provavelmente nao funciona ja que nao tem como prever o futuro).
       
          const navigate = useNavigate();
 
          navigate(-1); // vai voltar 1 pagina
+
+         navigate(path: string | number,
+            options?: {
+               state: any, // aqui fica o estado que nos queremos que seja passado para a pagina que estamos indo no path
+               replacement: boolean // se true ele deleta do histórico de navegação o ultimo caminho passado antes de a função ter sido executada
+               // Quando utilizamos essa propriedade, estamos dizendo que queremos substituir a última rota do histórico do navegador por essa rota que passamos como primeiro parâmetro. Sendo assim, caso voltássemos na rota anterior, não iríamos para essa rota substituída.
+            }
+         )
       }
-      useParams, com isso podemos passar parâmetros em uma rota e pegar ele em qualquer component filho pertencente a pagina para onde esta sendo levado
+
+      useParams {
+         com isso podemos passar parâmetros em uma rota e pegar ele em qualquer component filho pertencente a pagina para onde esta sendo levado
+         essa função retorna apenas um objeto = { [key]: value } com os parâmetros passados na rota
+
+         passando um parâmetro na rota e recebendo ele na pagina {
+            <Route path='/:id' element={<Item />} />
+
+            function Item() {
+               const { id } = useParams();
+            }
+         }
+      }
+
+      useLocation {
+         retorna o objeto passado no navigate além de outras informações adicionais. Só pode ser usado quando o usuário só poderá especificamente apertar o botão para mover a outra página, pois caso tento acessar pelo parâmetro da url o objeto não existirá.
+      }
    }
 }
 

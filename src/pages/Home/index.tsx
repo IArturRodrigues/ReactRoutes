@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import carte from '@src/data/carte.json';
 import ourHome from '@src/assets/nossa_casa.png';
 
@@ -7,6 +8,12 @@ import Global from '@src/styles/Global';
 export function Home(): JSX.Element {
    let recommendedPlates = [...carte];
    recommendedPlates = recommendedPlates.sort(() => 0.5 - Math.random()).splice(0,3);
+
+   const navigate = useNavigate();
+
+   function redirectToFoodDetails(food: typeof carte[0]) {
+      navigate(`/prato/${food.id}`, { state: {food} });
+   }
 
    return (
       <>
@@ -20,7 +27,7 @@ export function Home(): JSX.Element {
                      <Item.Image>
                         <img src={item.photo} alt={item.title} />
                      </Item.Image>
-                     <Item.Button>
+                     <Item.Button onClick={() => redirectToFoodDetails(item)}>
                         Ver mais
                      </Item.Button>
                   </Item>

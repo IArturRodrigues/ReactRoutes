@@ -12,10 +12,10 @@ type INavMenu = StyledComponent<'nav', any, any, never> & {
 
 const NavMenu = styled.nav`
    ${tw`flex`}
-   ${tw`py-5 px-15.625`}
-   ${tw`desktop_xsm:px-6.25`}
-   ${tw`desktop_xsm_sm:px-9.375`}
-   ${tw`desktop_sm_md:px-12.5`}
+   ${tw`py-5 px-horizontal_padding`}
+   ${tw`desktop_xsm:px-mobile_horizontal_padding`}
+   ${tw`desktop_xsm_sm:px-sm_horizontal_padding`}
+   ${tw`desktop_sm_md:px-md_horizontal_padding`}
 ` as INavMenu;
 
 NavMenu.List = List;

@@ -1,6 +1,6 @@
 import carte from '@src/data/carte.json';
 
-import { StyledItem, ItemImage, ItemDescription, ItemTitle, ItemTags, ItemCategory, ItemTagsDescription, ItemPrice } from './styles';
+import { Item as SItem, Description, Tags } from './Item';
 
 type IItemCategory = 'massas' | 'carnes' | 'combos' | 'veganos';
 
@@ -13,23 +13,23 @@ export default function Item({ item }: ItemProps): JSX.Element {
    const { photo, title, description, category, size, serving, price } = item;
 
    return (
-      <StyledItem>
-         <ItemImage>
+      <SItem>
+         <SItem.Image>
             <img src={photo} alt={title} />
-         </ItemImage>
-         <ItemDescription>
-            <ItemTitle>
+         </SItem.Image>
+         <Description>
+            <Description.Title>
                <h2> {title} </h2>
                <p> {description} </p>
-            </ItemTitle>
-            <ItemTags>
-               <ItemCategory type={category.label.toLowerCase() as IItemCategory} >{category.label}</ItemCategory>
-               <ItemTagsDescription>{size}g</ItemTagsDescription>
-               <ItemTagsDescription>Serve {serving} pessoa{serving === 1 ? '' : 's'}</ItemTagsDescription>
-               <ItemPrice>R$ {price},00</ItemPrice>
-            </ItemTags>
-         </ItemDescription>
-      </StyledItem>
+            </Description.Title>
+            <Tags>
+               <Tags.Category type={category.label.toLowerCase() as IItemCategory} >{category.label}</Tags.Category>
+               <Tags.Description>{size}g</Tags.Description>
+               <Tags.Description>Serve {serving} pessoa{serving === 1 ? '' : 's'}</Tags.Description>
+               <Tags.Price>R$ {price},00</Tags.Price>
+            </Tags>
+         </Description>
+      </SItem>
    );
 }
 

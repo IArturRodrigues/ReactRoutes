@@ -7,7 +7,8 @@ import Items from './Items';
 import SearchEngine from './SearchEngine';
 import Sorter from './Sorter';
 
-import { Header, HeaderText, Carte, CarteTitle, CarteFilters } from './styles';
+import { Carte } from './styles';
+import Global from '@src/styles/Global';
 
 // interface MenuProps {
 //    children?: React.ReactNode;
@@ -20,12 +21,12 @@ export default function Menu(): JSX.Element {
    return (
       <>
          <Carte>
-            <CarteTitle>Cardápio</CarteTitle>
+            <Global.Title>Cardápio</Global.Title>
             <SearchEngine search={search} setSearch={setSearch} />
-            <CarteFilters>
+            <Carte.Filters>
                <Filters filter={filter} setFilter={setFilter} />
                <Sorter sorter={sorter} setSorter={setSorter} />
-            </CarteFilters>
+            </Carte.Filters>
             <Items search={search} filter={filter} sorter={sorter} />
          </Carte>
       </>

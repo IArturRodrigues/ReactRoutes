@@ -24,10 +24,10 @@ module.exports = {
             25: '25rem',
          },
          padding: {
-            15.625: '15.625rem',
-            12.5: '12.5rem',
-            9.375: '9.375rem',
-            6.25: '6.25rem',
+            horizontal_padding: '15.625rem',
+            md_horizontal_padding: '12.5rem',
+            sm_horizontal_padding: '9.375rem',
+            mobile_horizontal_padding: '6.25rem',
          },
          colors: {
             dark: {

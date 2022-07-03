@@ -3,7 +3,7 @@ import React from 'react';
 import { CgSearch } from 'react-icons/cg';
 // import { MagnifyingGlass } from 'phosphor-react';
 
-import { Search, Input } from './styles';
+import Search from './Search';
 
 interface SearchEngineProps {
    children?: React.ReactNode;
@@ -14,7 +14,7 @@ interface SearchEngineProps {
 export default function SearchEngine({ search, setSearch }: SearchEngineProps): JSX.Element {
    return (
       <Search>
-         <Input
+         <Search.Input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar"

@@ -5,7 +5,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 import options from './options.json';
 
-import { StyledSorter, Sort, Options, Option } from './styles';
+import { Sort, Options } from './styles';
 
 interface SorterProps {
    children?: React.ReactNode;
@@ -19,8 +19,8 @@ export default function Sorter({ sorter, setSorter }: SorterProps): JSX.Element 
    const [open, setOpen] = useState(false);
    const sorterName = sorter && options.find((option) => option.value === sorter)?.name;
    return (
-      <StyledSorter>
-         <Sort
+      <Sort>
+         <Sort.Button
             onClick={() => setOpen(!open)}
             onBlur={() => setOpen(false)}
             isActive={sorter !== ''}
@@ -34,17 +34,17 @@ export default function Sorter({ sorter, setSorter }: SorterProps): JSX.Element 
             }
             <Options isActive={open} >
                {options.map((option) => (
-                  <Option key={option.value} onClick={() => setSorter(option.value)}>
+                  <Options.Item key={option.value} onClick={() => setSorter(option.value)}>
                      {option.name}
-                  </Option>
+                  </Options.Item>
                ))}
             </Options>
-         </Sort>
+         </Sort.Button>
          {
             open
                ? <SortAscending size={32} alt="Ordem decrescente" />
                : <SortDescending size={32} alt="Ordem crescente" />
          }
-      </StyledSorter>
+      </Sort>
    );
 }

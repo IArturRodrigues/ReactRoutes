@@ -37,6 +37,21 @@
       "semi": [
          "error",
          "always"
+      ],
+      "@typescript-eslint/ban-types": [
+         "warn",
+         {
+            "types": {
+               "{}": false
+            }
+         }
+      ],
+      "@typescript-eslint/no-explicit-any": [
+         "warn",
+         {
+            "fixToUnknown": false,
+            "ignoreRestArgs": true
+         }
       ]
    },
    "ignorePatterns": [

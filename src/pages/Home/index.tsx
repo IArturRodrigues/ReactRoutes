@@ -1,29 +1,30 @@
 import carte from '@src/data/carte.json';
 
-import { Container, Title, Recommended, RecommendedItem, RecommendedImage, RecommendedButton, OurHome, Address } from './styles';
+import { Recommended, OurHome, Address } from './styles';
+import Global from '@src/styles/Global';
 
 export function Home(): JSX.Element {
    let recommendedPlates = [...carte];
    recommendedPlates = recommendedPlates.sort(() => 0.5 - Math.random()).splice(0,3);
 
    return (
-      <Container>
-         <Title>
+      <>
+         <Global.Title>
             Recomendações da cozinha
-         </Title>
+         </Global.Title>
          <Recommended>
             {recommendedPlates.map((item) => (
-               <RecommendedItem key={item.id}>
-                  <RecommendedImage>
+               <Recommended.Item key={item.id}>
+                  <Recommended.Item.Image>
                      <img src={item.photo} alt={item.title} />
-                  </RecommendedImage>
-                  <RecommendedButton>
+                  </Recommended.Item.Image>
+                  <Recommended.Item.Button>
                      Ver mais
-                  </RecommendedButton>
-               </RecommendedItem>
+                  </Recommended.Item.Button>
+               </Recommended.Item>
             ))}
          </Recommended>
-      </Container>
+      </>
    );
 }
 

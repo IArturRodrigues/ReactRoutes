@@ -114,9 +114,27 @@ instalando tailwind e styled components {
       }
    }
 
+   usando BEM styled components {
+      import { StyledComponent } from 'styled-components';
+
+      // funciona com nested components
+      // não usar any no 3o argumento tipo do StyledComponent, pois perde a tipagem dos atributos da tag
+      types IComponent = StyledComponent<'HTMLTag', any, {}, never> & {
+         OtherComponent: StyledComponent<'HTMLTag', any, {}, never>;
+      }
+
+      // se tiver utilizando eslint e der erro no 3 argumento caso sendo {}, ad um ctrl f em "@typescript-eslint"
+   }
+
    links {
       https://github.com/ben-rogerson/twin.examples/tree/master/vite-styled-components-typescript
       https://www.npmjs.com/package/twin.macro?activeTab=readme
+   }
+   
+   links de uso {
+      twin macro Styled Components guia: https://github.com/ben-rogerson/twin.macro/blob/master/docs/styled-component-guide.md
+      BEM Styled Components: https://codesandbox.io/s/2z83zq9yx0?file=/src/components/Hero/styles/index.js
+      BEM css exemplos: https://sparkbox.com/foundry/bem_by_example
    }
 }
 
@@ -142,8 +160,8 @@ usando tsconfig paths com vite {
       
       {
          plugins: [
-         ...
-         tsconfigPaths(),
+            ...
+            tsconfigPaths(),
          ]
       }
    }
@@ -152,10 +170,6 @@ usando tsconfig paths com vite {
       https://stackoverflow.com/questions/68241263/absolute-path-not-working-in-vite-project-react-ts
       https://vitejs.dev/config/#resolve-alias
       https://github.com/aleclarson/vite-tsconfig-paths
-   }
-
-   links de uso {
-      https://github.com/ben-rogerson/twin.macro/blob/master/docs/styled-component-guide.md
    }
 }
 
@@ -261,5 +275,42 @@ utilizando o ESLint {
 
       caso queira que ignore um arquivo basta colocar o comentário: /* eslint-disable */
    }
+
+   links {
+      configurações importantes para reescrever do @typescript-eslint: https://typescript-eslint.io/rules/ban-types
+   }
 }
 
+react-router-dom {
+   ao usar as rotas temos que rodear com outros componentes relacionados as rotas {
+      import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+      export default function Router() {
+         return(
+            <BrowserRouter>
+               <Routes>
+                  <Route path='/' /> // index route
+                  <Route path='/some-route' />
+               </Routes>
+            </BrowserRouter>
+         );
+      }
+   }
+
+   para mostrarmos coisas que são comuns entre as páginas temos que utilizar rotas aninhadas {
+      return(
+         <BrowserRouter>
+            <Routes>
+               <Route path='/' element={<ComponentOrPageWithCommonAtomicComponents />} >
+                  <Route index element={<Component1 />} /> // index é o caminho passado na rota mãe
+                  <Route path='some-route' element={<Component2 />} /> // não precisa mais colocar /some-route pois a / já faz parte da rota dessa forma
+                  <Route path='some/route' element={<Component3 />} /> // acessando subrotas da rota "principal"
+               </Route>
+            </Routes>
+         </BrowserRouter>
+      );
+
+      // a partir do react router dom 6 as rotas filhas passaram a não precisar mais colocar o '/' no início pois a própria lib já faz isso
+      // os componentes filhos da rota só serão mostrados se a rota mãe tiver o componente Outlet
+   }
+}

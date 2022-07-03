@@ -4,7 +4,7 @@ import Item from './Item';
 
 import carte from '@src/data/carte.json';
 
-import { List } from './styles';
+import { List } from './List';
 
 interface ItemsProps {
    children?: React.ReactNode;

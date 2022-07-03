@@ -1,19 +1,21 @@
 import tw, { styled } from 'twin.macro';
+import { StyledComponent } from 'styled-components';
 
 interface FilterProps {
    isActive: boolean;
 }
 
-// export const StyledWithProps = styled.div<Props>``;
+type IFilter = StyledComponent<'div', any, {}, never> & {
+   Item: StyledComponent<'button', any, FilterProps, never>;
+}
 
-export const StyledFilters = tw.div`
-   flex
-   gap-6
-   flex-wrap
-   my-5
-`;
+const Filters = styled.div`
+   ${tw`flex flex-wrap`}
+   ${tw`gap-6`}
+   ${tw`my-5`}
+` as IFilter;
 
-export const Filter = styled.button<FilterProps>`
+Filters.Item = styled.button<FilterProps>`
    ${tw`flex items-center justify-center`}
    ${tw`bg-dark-300`}
    ${tw`border-none`}
@@ -24,3 +26,5 @@ export const Filter = styled.button<FilterProps>`
    ${({ isActive }) => isActive && tw`bg-blue-900 text-white`}
    /* ${tw`hover:cursor-pointer`} */
 `;
+
+export default Filters;

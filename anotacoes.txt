@@ -316,7 +316,13 @@ react-router-dom {
    }
 
    Hooks {
-      useNavigate retorna uma função que aceita uma string para ir ou um numero. Caso o parâmetro passado para essa função seja uma string ele deveria carregar uma rota valida
+      useNavigate {
+         retorna uma função que aceita uma string para ir ou um numero. Caso o parâmetro passado para essa função seja uma string ele deveria carregar uma rota valida, caso seja um numero deverá ser um inteiro positivo ou negativo, caso seja negativo ele voltara a quantidade de paginas passada, caso seja positivo ele avançara a quantidade de paginas passada (provavelmente nao funciona ja que nao tem como prever o futuro).
+      
+         const navigate = useNavigate();
+
+         navigate(-1); // vai voltar 1 pagina
+      }
       useParams, com isso podemos passar parâmetros em uma rota e pegar ele em qualquer component filho pertencente a pagina para onde esta sendo levado
    }
 }

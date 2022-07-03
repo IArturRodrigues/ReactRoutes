@@ -11,7 +11,5 @@ body {
 }
 
 #root > main.container {
-	display: flex;
-	flex-direction: column;
-	min-heigth: 100vh;
+	@apply flex flex-col min-h-screen min-w-full
 }

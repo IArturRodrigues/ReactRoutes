@@ -7,7 +7,7 @@ import Items from './Items';
 import SearchEngine from './SearchEngine';
 import Sorter from './Sorter';
 
-import { Filters as CarteFilters } from './styles';
+import CarteFilters from './Carte';
 import Global from '@src/styles/Global';
 
 // interface MenuProps {

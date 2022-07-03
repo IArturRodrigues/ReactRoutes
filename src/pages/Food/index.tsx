@@ -1,7 +1,7 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Routes, Route } from 'react-router-dom';
 
 import NotFound from '../NotFound';
-import { FoodTags } from '@src/components';
+import { Default, FoodTags } from '@src/components';
 
 import carte from '@src/data/carte.json';
 
@@ -11,7 +11,8 @@ export function Food(): JSX.Element {
    const navigate = useNavigate();
    const { id } = useParams();
    const food = carte.find(food => food.id === Number(id));
-   if(!food) return <NotFound />;
+   
+   if (!food) return <NotFound />;
    const { title, photo, description } = food;
 
    function goPreviousPage() {
@@ -19,23 +20,29 @@ export function Food(): JSX.Element {
    }
 
    return (
-      <>
-         <GoPreviousPage onClick={() => goPreviousPage()}>
-            {'< Voltar'}
-         </GoPreviousPage>
-         <Container>
-            <Title>{title}</Title>
-            <Image>
-               <img src={photo} alt={title} />
-            </Image>
-            <Content>
-               <Content.Description>
-                  {description}
-               </Content.Description>
-               <FoodTags {...food} />
-            </Content>
-         </Container>
-      </>
+      <Routes>
+         <Route path='*' element={<Default />}>
+            <Route index element={
+               <>
+                  <GoPreviousPage onClick={() => goPreviousPage()}>
+                     {'< Voltar'}
+                  </GoPreviousPage>
+                  <Container>
+                     <Title>{title}</Title>
+                     <Image>
+                        <img src={photo} alt={title} />
+                     </Image>
+                     <Content>
+                        <Content.Description>
+                           {description}
+                        </Content.Description>
+                        <FoodTags {...food} />
+                     </Content>
+                  </Container>
+               </>
+            } />
+         </Route>
+      </Routes>
    );
 }
 

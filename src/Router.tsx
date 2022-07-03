@@ -12,8 +12,8 @@ export default function Router() {
                   <Route index element={<Home />} />
                   <Route path='cardapio' element={<Menu />} />
                   <Route path='sobre' element={<About />} />
-                  <Route path='prato/:id' element={<Food />} />
                </Route>
+               <Route path='/prato/:id' element={<Food />} />
                <Route path='*' element={<NotFound />} />
             </Routes>
             <Footer />

@@ -1,19 +1,27 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
+import { FoodTags } from '@src/components';
 
 import carte from '@src/data/carte.json';
 
-import { GoBack, Container, Title, Image, Content, Tags } from './styles';
+import { GoPreviousPage, Container, Title, Image, Content } from './styles';
 
 export function Food(): JSX.Element {
+   const navigate = useNavigate();
    const { id } = useParams();
    const food = carte.find(food => food.id === Number(id));
    if(!food) return <div></div>;
-   const { title, photo, description, category, size, serving, price } = food;
+   const { title, photo, description } = food;
+
+   function goPreviousPage() {
+      navigate(-1);
+   }
+
    return (
       <>
-         <GoBack>
+         <GoPreviousPage onClick={() => goPreviousPage()}>
             {'< Voltar'}
-         </GoBack>
+         </GoPreviousPage>
          <Container>
             <Title>{title}</Title>
             <Image>
@@ -23,16 +31,7 @@ export function Food(): JSX.Element {
                <Content.Description>
                   {description}
                </Content.Description>
-               <Tags>
-                  <Tags.Type category={category.label.toLowerCase() as 'massas' | 'carnes' | 'combos' | 'veganos'}>
-                     {category.label}
-                  </Tags.Type>
-                  <Tags.Portion>{size}g</Tags.Portion>
-                  <Tags.Serving>
-                     Serve {serving} pessoa{serving === 1 ? '' : 's'}
-                  </Tags.Serving>
-                  <Tags.Price>R$ {price.toFixed(2)}</Tags.Price>
-               </Tags>
+               <FoodTags {...food} />
             </Content>
          </Container>
       </>

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import NotFoundSVG from '@src/components/NotFoundSVG';
+import { NotFoundSVG } from '@src/components';
 
 import { NotFound as SNotFound, GoBack } from './NotFound';
 

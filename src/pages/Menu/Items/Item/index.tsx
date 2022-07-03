@@ -1,16 +1,11 @@
 import { Food } from '@src/types/Restaurant';
 
-import { Item as SItem, Description, Tags } from './Item';
+import { FoodTags } from '@src/components';
 
-type IItemCategory = 'massas' | 'carnes' | 'combos' | 'veganos';
+import { Item as SItem, Description } from './Item';
 
-interface ItemProps {
-   children?: React.ReactNode;
-   item: Food;
-}
-
-export default function Item({ item }: ItemProps): JSX.Element {
-   const { photo, title, description, category, size, serving, price } = item;
+export default function Item(props: Food): JSX.Element {
+   const { photo, title, description } = props;
 
    return (
       <SItem>
@@ -22,12 +17,7 @@ export default function Item({ item }: ItemProps): JSX.Element {
                <h2> {title} </h2>
                <p> {description} </p>
             </Description.Title>
-            <Tags>
-               <Tags.Category type={category.label.toLowerCase() as IItemCategory} >{category.label}</Tags.Category>
-               <Tags.Description>{size}g</Tags.Description>
-               <Tags.Description>Serve {serving} pessoa{serving === 1 ? '' : 's'}</Tags.Description>
-               <Tags.Price>R$ {price},00</Tags.Price>
-            </Tags>
+            <FoodTags {...props} />
          </Description>
       </SItem>
    );

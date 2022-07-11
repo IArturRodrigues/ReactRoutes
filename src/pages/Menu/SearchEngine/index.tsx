@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 
 import { CgSearch } from 'react-icons/cg';
 // import { MagnifyingGlass } from 'phosphor-react';
@@ -11,7 +11,8 @@ interface SearchEngineProps {
    setSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function SearchEngine({ search, setSearch }: SearchEngineProps): JSX.Element {
+function SearchEngine({ search, setSearch }: SearchEngineProps): JSX.Element {
+   const searchIcon = useMemo(() => <CgSearch size={20} color="#4C4D5E" />, []);
    return (
       <Search>
          <Search.Input
@@ -19,10 +20,9 @@ export default function SearchEngine({ search, setSearch }: SearchEngineProps): 
             onChange={(event) => setSearch(event.target.value)}
             placeholder="Buscar"
          />
-         <CgSearch
-            size={20}
-            color="#4C4D5E"
-         />
+         {searchIcon}
       </Search>
    );
 }
+
+export default memo(SearchEngine);

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import { SortAscending, SortDescending } from 'phosphor-react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
@@ -15,7 +15,7 @@ interface SorterProps {
 
 // onBlur serve para quando for clicado fora do botao, nisso queremos sempre que ele feche
 
-export default function Sorter({ sorter, setSorter }: SorterProps): JSX.Element {
+function Sorter({ sorter, setSorter }: SorterProps): JSX.Element {
    const [open, setOpen] = useState(false);
    const sorterName = sorter && options.find((option) => option.value === sorter)?.name;
    return (
@@ -48,3 +48,5 @@ export default function Sorter({ sorter, setSorter }: SorterProps): JSX.Element 
       </Sort>
    );
 }
+
+export default memo(Sorter);

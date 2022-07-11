@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import filters from './filters.json';
 
@@ -17,7 +17,7 @@ interface FilterProps {
    setFilter: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-export default function Filters({ filter, setFilter }: FilterProps): JSX.Element {
+function Filters({ filter, setFilter }: FilterProps): JSX.Element {
 
    function selectFilter(option: IOption) {
       if (filter === option.id) return setFilter(null);
@@ -39,3 +39,5 @@ export default function Filters({ filter, setFilter }: FilterProps): JSX.Element
       </SFilters>
    );
 }
+
+export default memo(Filters);

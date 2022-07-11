@@ -1,11 +1,15 @@
+import { lazy } from 'react';
 import { useParams, useNavigate, Routes, Route } from 'react-router-dom';
 
-import NotFound from '../NotFound';
-import { Default, FoodTags } from '@src/components';
+// import { Default, FoodTags } from '@src/components';
+import { Default } from '@src/components';
 
 import carte from '@src/data/carte.json';
 
 import { GoPreviousPage, Container, Title, Image, Content } from './styles';
+
+const NotFound = lazy(() => import('../NotFound'));
+const FoodTags = lazy(() => import('@src/components/FoodTags'));
 
 export function Food(): JSX.Element {
    const navigate = useNavigate();

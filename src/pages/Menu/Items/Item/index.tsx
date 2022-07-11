@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Food } from '@src/types/Restaurant';
@@ -6,7 +7,7 @@ import { FoodTags } from '@src/components';
 
 import { Item as SItem, Description } from './Item';
 
-export default function Item(props: Food): JSX.Element {
+function Item(props: Food): JSX.Element {
    const { id, photo, title, description } = props;
    const navigate = useNavigate();
 
@@ -26,6 +27,7 @@ export default function Item(props: Food): JSX.Element {
    );
 }
 
+export default memo(Item);
 
 // this is a comment
 /**

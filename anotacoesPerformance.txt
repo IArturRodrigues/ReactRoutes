@@ -1,0 +1,55 @@
+memo {
+   faz a comparação entre as props anteriores e as props atuais do componente para saber se precisa fazer uma nova renderização do componente ou nao.
+   recomendado a utilização para listas e na troca de paginas.
+
+   ao utilizarmos o memo em listas temos que garantir que as keys sempre sejam diferentes e estáticas, pois caso ela atualize sempre que fizermos alguma alteração o componente será re-renderizado em cada busca mesmo que o restante das props fiquem inalteradas.
+
+   nao ha problema de utilizar o index como key em listas estáticas e que nao possam ser filtradas.
+
+   utilização {
+      import { memo } from 'react';
+
+      function Componente (props: PropsTypes) {
+         ...
+      }
+
+      export default memo(Componente);
+      // o memo só é utilizado na hora de exportar componentes
+      // o memo recebe 2 parâmetros com o segundo sendo opcional
+      // forma de utilizar o memo com os 2 parâmetros
+      // export default memo(Componente, (prevProps, nextProps) => {
+         return true;
+         // essa função retorna um boolean que indica se o componente precisa ser renderizado novamente ou nao.
+         // se true ele memoriza e nao faz uma nova renderização, se false ele sempre vai renderizar o componente.
+      })
+   }
+}
+
+useMemo {
+   funciona da mesma forma que o useEffect porém serve para memorizar pequenas partes do componente que nao precisam ser re-renderizadas a não ser que alguma coisa mude, e o que esperamos dessa mudança é colocado no array de dependências.
+   esses pequenos componentes são colocados em variáveis e mostrados na tela da mesma forma que uma variável js/ts.
+}
+
+lazy {
+   faz a importação dos arquivos da pagina sob demanda.
+   quando utilizamos o import normal do react ele importa todos os componentes de uma única vez o que pode ocasionar em alguns problemas de performance na hora de inicializar a pagina, além do gasto de pacotes ser muito maior sem a importação sob demanda.
+   para utilizar o lazy é preciso envolver a aplicação por um componente do React chamado Suspense, esse componente recebe uma prop obrigatória chamada fallback, que será o componente a ser renderizado enquanto a importação sob demanda é realizada.
+
+   utilização {
+      import { lazy } from 'react';
+
+      const Component = lazy(() => import('path/to/component'));
+
+      function Routes () {
+         <Suspense fallback={<p> Carregando... </p>} >
+            <Routes>
+               <Route />
+            </Routes>
+         </Suspense>
+      }
+   }
+
+   links {
+      componente Suspense: https://pt-br.reactjs.org/docs/concurrent-mode-suspense.html
+   }
+}
